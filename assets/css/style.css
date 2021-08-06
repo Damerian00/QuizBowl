@@ -10,35 +10,65 @@
 --lightBlue: rgb(57, 160, 237);
 }
 
-*{ margin:0; padding:0;
+*{ margin:0; padding:0;list-style: none;
 
 }
-
+body{}
+main{
+    height: 10vh;
+    width: 60%;
+    margin: 0 auto}
+.nav, #playCard, #playCard section, .choices ul{
+   
+    display: flex;
+   }
 .nav{
  font-family: var(--responseFont);
- display:flex;background-color: var(--darkBlue);
+ justify-content: space-between;
+ height: 10vh;
+ margin-bottom: 10vh;
+ background-color: var(--darkBlue);
 }
-.nav > div{margin: 2vh;}
-.nav a{text-decoration: none;font-size:30px; 
-    font-weight: bolder;color: var(--green);
+.nav a, #cdTimer {
+    font-size:30px; 
+    font-weight: bolder;}
+.nav > div{margin: 2vh 6%;}
+.nav a{text-decoration: none;color: var(--green);
 }
 #cdTimer{
-color: var (--tan);
+color: var(--tan);
 } 
 
-.container{
+
+#playCard{
+    background-color: var(--darkBlue); 
+    min-height: 50vh;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-radius: 64px;
 
 }
-#playCard{
-
+.questions, .choices{
+    justify-content: center;
 }
 .questions{
-
+    flex: .75;
+    margin-top: 2vh;
+}
+.questions h2{
+color: var(--tan);
+font-size: 4rem;
 }
 .choices{
-
+color:var(--green);
+font-size: 2rem;
+flex: 2;
 }
-#opt1 {
+.choices ul{
+    flex-direction: column;
+}
+
+#opt1, #op2, #opt3, #opt4 {
 
 }
 #opt2 {
