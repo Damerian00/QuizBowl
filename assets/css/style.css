@@ -15,11 +15,12 @@
 }
 body{position: relative;height: 100vh;}
 main{
+    position: relative;
     height: 10vh;
     width: 60%;
     margin: 0 auto}
-.nav, #playCard, #playCard section, .choices ul{
-   
+
+.nav, #playCard, #playCard section, .choices ul, .hideCard{
     display: flex;
    }
 .nav{
@@ -46,18 +47,33 @@ color: var(--tan);
     flex-direction: column;
     justify-content: space-evenly;
     border-radius: 64px;
-
+    
 }
+.questions h2, .hideCard h2{
+color: var(--tan);
+font-size: 4rem;
+}
+.hideCard{
+    background-color: var(--lightBlue);
+    min-height: 50vh;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 64px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    font-family: var(--seriousFont);
+    color: rgb(255, 255, 255);
+    align-items: center;
+    box-shadow: 7px 4px 2px var(--darkBlue);
+}
+
 .questions, .choices{
     justify-content: center;
 }
 .questions{
     flex: .75;
     margin-top: 2vh;
-}
-.questions h2{
-color: var(--tan);
-font-size: 4rem;
 }
 .choices{
 color:var(--green);
@@ -68,9 +84,22 @@ flex: 3;
     flex-direction: column;
     justify-content: space-evenly;
 }
-
+.hideCard h2{
+    color:rgb(255, 255, 255);
+}
+.hideCard p{
+    font-size: 2rem;
+    text-align: center; 
+}
+.startBtn{
+    font-size: 2rem;
+    padding: 6px;
+    border-radius: 10px;
+    box-shadow: 7px 4px 2px var(--darkBlue);
+    cursor: pointer;
+}
 #opt1, #opt2, #opt3, #opt4 {
-    
+    cursor: pointer;
  }
 
 #opt2 {
@@ -82,13 +111,12 @@ flex: 3;
 #opt4 {
     
 }
-.hideCard{
 
-}
 footer, aside{background-color: var(--darkBlue);position: absolute;}
 .leftSide, .rightSide{bottom: 10vh;
     height: 40vh;
-    width: 5%;}
+    width: 5%;
+    box-shadow: 7px 4px 2px black;}
 .rightSide{right:0;}
 footer{height: 10vh;
     bottom: 0;
