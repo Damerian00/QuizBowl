@@ -13,7 +13,7 @@
 *{ margin:0; padding:0;list-style: none;
 
 }
-body{}
+body{position: relative;height: 100vh;}
 main{
     height: 10vh;
     width: 60%;
@@ -62,15 +62,17 @@ font-size: 4rem;
 .choices{
 color:var(--green);
 font-size: 2rem;
-flex: 2;
+flex: 3;
 }
 .choices ul{
     flex-direction: column;
+    justify-content: space-evenly;
 }
 
-#opt1, #op2, #opt3, #opt4 {
+#opt1, #opt2, #opt3, #opt4 {
+    
+ }
 
-}
 #opt2 {
     
 }
@@ -83,3 +85,12 @@ flex: 2;
 .hideCard{
 
 }
+footer, aside{background-color: var(--darkBlue);position: absolute;}
+.leftSide, .rightSide{bottom: 10vh;
+    height: 40vh;
+    width: 5%;}
+.rightSide{right:0;}
+footer{height: 10vh;
+    bottom: 0;
+    left: 0;
+    width: 100%;}
