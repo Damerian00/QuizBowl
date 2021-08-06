@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Josefin+Sans:ital,wght@0,700;1,400&family=Staatliches&display=swap');
+
+:root { 
+--sillyFont: 'Josefin Sans', sans-serif;
+--seriousFont: 'Staatliches', cursive;
+--responseFont: 'Indie Flower', cursive;
+--green: rgb(55, 150, 52);
+--darkBlue: rgb(0, 27, 46);
+--tan: rgb(185, 163, 148);
+--lightBlue: rgb(57, 160, 237);
+}
+
+*{ margin:0; padding:0;
+
+}
+
+.nav{
+ font-family: var(--responseFont);
+ display:flex;background-color: var(--darkBlue);
+}
+.nav > div{margin: 2vh;}
+.nav a{text-decoration: none;font-size:30px; 
+    font-weight: bolder;color: var(--green);
+}
+#cdTimer{
+color: var (--tan);
+} 
+
+.container{
+
+}
+#playCard{
+
+}
+.questions{
+
+}
+.choices{
+
+}
+#opt1 {
+
+}
+#opt2 {
+    
+}
+#opt3 {
+    
+}
+#opt4 {
+    
+}
+.hideCard{
+
+}
