@@ -11,6 +11,14 @@ let opt2 = document.querySelector('#opt2');
 let opt3 = document.querySelector('#opt3');
 let opt4 = document.querySelector('#opt4');
 let resp = document.querySelector('.response');
+let optVar1;
+let optVar2;
+let optVar3;
+let optVar4;
+let rI1;
+let rI2;
+let rI3;
+let rI4;
 
 let questionsArray = [{
 question: "What color is Blue?",
@@ -100,30 +108,121 @@ function startTimer(){
         }
     
       }, 1000);
-}
-
-function askQuests (){
-    let random = Math.floor(Math.random()*(questionsArray.length));
-    let questions = questionsArray[random];
-    let assignedValues = Object.values(questions)
-    console.log(assignedValues);
-    assignedValues = assignedValues.slice(1);
-    console.log(assignedValues);
-    for (let i = 0; i < 4; i++) {
-
     }
-    let options = Math.floor(Math.random()*3);
-    let value1 = options ++;
     
-    askQuest.innerHTML = questions.question;
-    opt1.innerHTML = questions.cAns;
-    opt2.innerHTML = questions.iAnsOne;
-    opt3.innerHTML = questions.iAnsTwo;
-    opt4.innerHTML = questions.iAnsThree;
-    resp.innerHTML = "Wrong!";
-    
+    function askQuests (){
+/* need tocheck to see if the index was used already when it's 
+randomly choosen */   
+        let random = Math.floor(Math.random()*(questionsArray.length));
+        let questions = questionsArray[random];
+        let assignedValues = Object.values(questions)
 
-}
+        let i = 0;
+        let rando; 
+    console.log(assignedValues);
+    let newassignedValues = assignedValues.slice(1);
+    console.log(newassignedValues);
+    rando = Math.floor(Math.random()*(newassignedValues.length));
+    console.log(rando);
+    optVar1 = rando;    
+    rI1 = newassignedValues.splice(rando, 1);
+    rando = Math.floor(Math.random()*(rI1.length));
+    console.log(rando);
+    optVar2 = rI1[rando];    
+    rI2 = newassignedValues.splice(rando, 1);
+    rando = Math.floor(Math.random()*(rI2.length));
+    console.log(rando);
+    optVar3 = rI2[rando];    
+    rI3 =newassignedValues.splice(rando, 1);
+    rando = Math.floor(Math.random()*(rI3.length));
+    console.log(rando);
+    optVar4 = rI3[rando];;    
+    rI4 = newassignedValues.splice(rando, 1);
+
+
+// while (i < 5){   
+//     if (rando === rI1 || rando === rI2 || rando === rI3 || optVar4 === 0){
+//         if (rando === rI1 || rando === rI2 || optVar3 === 0){
+//             if (rando === rI1 && rI2){
+//                 if (rando = rI1 || opt2Var === 0){
+//                     optVar2 = rando;
+//                     i++;
+//                 }else{
+//                 optVar1 = rando;
+//                 i++  }
+
+        
+//                  } else {
+//              optVar3= rando;
+//              i++
+
+//          }
+                        
+//          } else{
+//             optVar4= rando;
+//             i++
+            
+//         }            
+        
+//     } else{ }
+//     console.log(i);
+// }        
+        opt1.innerHTML = rI1;
+        opt2.innerHTML = rI2;
+        opt3.innerHTML = rI3;
+        opt4.innerHTML = rI4;
+        askQuest.innerHTML = questions.question;
+        resp.innerHTML = "Wrong!";
+    // if (){
+    //     rI1 = random;
+    //     Opt1Var = 1;
+    //     console.log(i);
+    //     i++;
+    // } else if (opt2Var === 0){
+    //     rI2 = rando;
+    //     Opt2Var = 1;
+    //     console.log(i);
+    //     i++;
+    // } else if (opt3Var === 0){
+    //     rI3 = rando
+    //     opt3Var = 1;
+    //     console.log(i);
+    //     i++;
+    // }else if(opt4Var === 0){ 
+    //     rI4 = rando;
+    //     opt4Var = 1;
+    //     console.log(i);
+    //     i++;
+    // } else {
+    //     console.log(i);
+    // }     
+    
+ 
+//     function randomIndexes () {
+// //randomly chooses an index
+//     //     rando = Math.floor(Math.random()*(newassignedValues.length));
+//     //     if (rI1 === "undefined"){
+//     //         rI1 = rando;
+//     //     }else if (rI2 === "undefined"){
+//     //         rI2 = rando;
+//     //     } else if ((rI3 === "undefined"){
+//     //         rI3 = random;
+//     //     } else if(rI4 === "undefined"){
+//     //         rI3 = random;
+//     //     }
+       
+//     // }
+
+
+// }
+    }    
+    // let options = Math.floor(Math.random()*3);
+    // let value1 = options ++;
+    
+    
+    
+        
+
 
 function gameOver () {
 
