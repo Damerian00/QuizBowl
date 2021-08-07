@@ -24,15 +24,18 @@ function startTimer(){
 
     let timerInterval = setInterval(function() {
         secondsLeft--;
-        timeEl.innerHTML = "Time: ${secondsLeft}";
-    console.log(timeEl);
-        if(secondsLeft === 0) {
+        timeEl.innerHTML = `Time: ${secondsLeft} seconds`;
+            if(secondsLeft === 0) {
           // Stops execution of action at set interval
           clearInterval(timerInterval);
           // Calls function to create and append image
-          sendMessage();
+          gameOver();
         }
     
       }, 1000);
+}
+function gameOver () {
+
+
 }
 
