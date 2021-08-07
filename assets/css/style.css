@@ -111,13 +111,14 @@ flex: 3;
 #opt4 {
     
 }
-
+.response{color: var(--lightBlue);}
 footer, aside{background-color: var(--darkBlue);position: absolute;}
 .leftSide, .rightSide{bottom: 10vh;
     height: 40vh;
     width: 5%;
-    box-shadow: 7px 4px 2px black;}
-.rightSide{right:0;}
+    box-shadow: 7px 4px 2px black;
+border-radius: 54px 2px 0;}
+.rightSide{right:0;border-radius: 2px 54px 0 0;}
 footer{height: 10vh;
     bottom: 0;
     left: 0;
