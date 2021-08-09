@@ -12,6 +12,7 @@ let opt3 = document.querySelector('#opt3');
 let opt4 = document.querySelector('#opt4');
 let resp = document.querySelector('.response');
 var container = document.querySelector(".choices");
+let timerInterval;
 let questionIndex = 0;
 let random;
 let questions;
@@ -112,13 +113,13 @@ function startGame() {
 
 function startTimer() {
 
-    let timerInterval = setInterval(function () {
+  timerInterval = setInterval(function () {
         secondsLeft--;
         timeEl.innerHTML = `Time: ${secondsLeft} seconds`;
         if (secondsLeft <= 0) {
             
             // Stops execution of action at set interval
-            clearInterval(timerInterval);
+            
 
             gameOver();
         }
@@ -128,10 +129,12 @@ function startTimer() {
 
 function askQuests() {
      random = Math.floor(Math.random() * (questionsArray.length));
-     while (askedQuestions.includes(random)){
+     while (askedQuestions.includes(random) && askedQuestions.length !== questionsArray.length){
         random = Math.floor(Math.random() * (questionsArray.length)); 
- 
-     }
+      }
+      if (askedQuestions.length === questionsArray.length){
+            gameOver();
+      }else{
      askedQuestions.push(random);
      questions = questionsArray[random];
      assignedValues = Object.values(questions)
@@ -162,7 +165,7 @@ function askQuests() {
     opt3.innerHTML = `3: ${rI3}`;
     opt4.innerHTML = `4: ${rI4}`;
     askQuest.innerHTML = questions.question;
-    
+}
     /*  
     let index = el.getAttribute("data-number");
     let state = el.getAttribute("data-state");
@@ -194,6 +197,8 @@ function askQuests() {
 function gameOver() {
     let gameOver = document.querySelector('.gameOverCard');
     gameOver.style.visibility = "visible";
+    document.querySelector('#playCard').style.visibility = "hidden";
+    clearInterval(timerInterval);
     console.log("GameOver");
 
 }
