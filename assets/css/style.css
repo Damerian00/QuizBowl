@@ -20,7 +20,7 @@ main{
     width: 60%;
     margin: 0 auto}
 
-.nav, #playCard, #playCard section, .choices ul, .hideCard, .gameOverCard{
+.nav, #playCard, #playCard section, .choices ul, .hideCard, .gameOverCard, #daScores > ul{
     display: flex;
    }
 .nav{
@@ -50,7 +50,7 @@ color: var(--tan);
 
     
 }
-.questions h2, .hideCard h2, .gameOverCard h2{
+.questions h2, .hideCard h2, .gameOverCard h2, #daScores h2{
 color: var(--tan);
 font-size: 4rem;
 }
@@ -72,13 +72,17 @@ font-size: 4rem;
     transition-timing-function: linear;
 }
 
-.questions, .choices{
+.questions, .choices, #daScores{
     justify-content: center;
 }
-.questions{
+.questions, #daScores{
     flex: .75;
     margin-top: 2vh;
 }
+#playCard #daScores{display:block;}
+#daScores{background: white;
+    display:block; width:90%;margin:0 auto;border-radius: 30px;display:block;}
+#daScores h2{background: var(--darkBlue);text-align: center;padding-bottom: 2vh; margin-top: -3vh;}
 .choices{
 color:var(--green);
 font-size: 2rem;
@@ -138,6 +142,9 @@ flex: 3;
 #msg {    color: red;
     font-size: 1rem;
 }
+.scores{flex-direction: row;
+    flex-wrap: wrap;}
+.scores > li{}
 footer, aside{background-color: var(--darkBlue);position: absolute;}
 .leftSide, .rightSide{bottom: 10vh;
     height: 40vh;

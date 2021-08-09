@@ -12,7 +12,7 @@ let opt3 = document.querySelector('#opt3');
 let opt4 = document.querySelector('#opt4');
 let resp = document.querySelector('.response');
 var container = document.querySelector(".choices");
-let p = document.createElement("p");
+
 var submitButton = document.querySelector("#submitName");
 var msgDiv = document.querySelector("#msg");
 let timerInterval;
@@ -133,7 +133,7 @@ function askQuests() {
         random = Math.floor(Math.random() * (questionsArray.length)); 
       }
       if (askedQuestions.length === questionsArray.length){
-            gameOver();
+         
       }else{
      askedQuestions.push(random);
      questions = questionsArray[random];
@@ -174,7 +174,7 @@ function gameOver() {
     let totalQuest = questionsArray.length;
     let sForm = document.querySelector('.congrats');
     console.log(sForm);
-    
+    let p = document.createElement("p");
     p.textContent = (`You scored: ${score} out of ${totalQuest} `)
     p.setAttribute("class" , "totals");
     sForm.appendChild(p);
@@ -182,11 +182,11 @@ function gameOver() {
 }
 
 container.addEventListener("click", function (event){
-    // resp.innerHTML = "Wrong!";
-    /**When a user makes a guess this wil determine if it wsa correct or not*/
+ /**When a user makes a guess this wil determine if it was 
+  correct or not*/
     let el = event.target.innerText.trim();
     let correctAns = questions.cAns;
-    if (questionsArray.length === questionIndex || secondsLeft <= 0){
+    if (questionsArray.length === questionIndex || secondsLeft <= 0 || askedQuestions.length === questionsArray.length){
         console.log("array called it")
         gameOver();
     }
@@ -203,13 +203,14 @@ container.addEventListener("click", function (event){
     }
     askQuests();
 });
-/* recording user info for the score. */
-/* Adding the localStorage */
 function displayMessage(type, message) {
     msgDiv.textContent = message;
     msgDiv.setAttribute("class", type);
-  }
-  submitButton.addEventListener("click", function(event) {
+}
+/* recording user info for the score.
+ Adding to the localStorage
+ sending user to results page. */
+submitButton.addEventListener("click", function(event) {
     event.preventDefault();
     
     var userName = document.querySelector("#userName").value;
@@ -220,17 +221,15 @@ function displayMessage(type, message) {
         displayMessage("success", "Registered successfully");
         
         localStorage.setItem("userName", userName);
+        localStorage.setItem("score", score);
         showWinners();
     }
 });
 
 function showWinners() {
     window.location.href = "results.html";
-    var userName = localStorage.getItem("userName");
+    
   
-    if (!userName) {
-      return;
-    }
-  
-    useruserNameSpan.textContent = userName;
+
   }
+  

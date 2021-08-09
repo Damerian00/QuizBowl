@@ -11,16 +11,14 @@
 <body>
       <header class="nav">
           <div><a href ="index.html">Go Back</a></div>
-          <div><p id="cdTimer">Time: 1:00</p></div>
       </header>
       <main class="container">
-           <section class="gameOverCard" data-visibility = "visible">
-                <form id = "scoringForm">
-                    <h2>Congratulations</h2>
-                    <label></label>
-                    <input>
-                    <button>Submit</button>
-                </form>
+           <section id="playCard" data-visibility = "visible">
+                <section id = "daScores">
+                    <h2>High Scores</h2>
+                    <ul class= "scores"></ul>
+                </section>
+                <section></section>
             </section>
       </main>
       <aside class="leftSide"></aside>
@@ -28,6 +26,6 @@
       <footer>
 
       </footer>
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/results.js"></script>
 </body>
 </html>
