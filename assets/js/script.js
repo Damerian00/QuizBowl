@@ -219,10 +219,11 @@ submitButton.addEventListener("click", function(event) {
         displayMessage("error", "userName cannot be blank");
     } else  {
         displayMessage("success", "Registered successfully");
-        
-        localStorage.setItem("userName", userName);
-        localStorage.setItem("score", score);
+       
+        localStorage.setItem("userName", JSON.stringify(userName));
+        localStorage.setItem("score", JSON.stringify(score));
         showWinners();
+
     }
 });
 
