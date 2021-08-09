@@ -10,7 +10,7 @@
 </head>
 <body>
       <header class="nav">
-          <div><a href ="#">View Highscores</a></div>
+          <div><a href ="results.html">View Highscores</a></div>
           <div><p id="cdTimer">Time: 1:00</p></div>
       </header>
       <main class="container">
@@ -41,8 +41,13 @@
                 <header>
                     <h2>Game Over!</h2>
                 </header>
-                <main><p></p></main>
-                <button class ="endGame">End Game</button>
+                <form id = "scoringForm">
+                    <h3 class ="congrats">Congratulations</h3>
+                    <label>Please Input your name Below.</label>
+                    <input id= "userName" name="name" type = "text">
+                    <button id="submitName">Submit</button>
+                    <div id="msg"></div>
+                </form>
             </section>
       </main>
       <aside class="leftSide"></aside>

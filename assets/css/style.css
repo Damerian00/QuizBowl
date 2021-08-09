@@ -47,6 +47,7 @@ color: var(--tan);
     flex-direction: column;
     justify-content: space-evenly;
     border-radius: 64px;
+
     
 }
 .questions h2, .hideCard h2, .gameOverCard h2{
@@ -66,6 +67,9 @@ font-size: 4rem;
     color: rgb(255, 255, 255);
     align-items: center;
     box-shadow: 7px 4px 2px var(--darkBlue);
+    transition-property: background;
+    transition-duration: .2s, 1s;
+    transition-timing-function: linear;
 }
 
 .questions, .choices{
@@ -100,21 +104,40 @@ flex: 3;
 }
 .gameOverCard{
     visibility: hidden;
-}
+
+  }
+  .gameOverCard:hover, .hideCard:hover {
+    background: rgb(17, 120, 161);
+  }
 #opt1, #opt2, #opt3, #opt4 {
     cursor: pointer;
+    border:2px var(--tan) solid;
+    transition-property: background, color;
+    transition-duration: .2s, 1s;
+    transition-timing-function: linear;
  }
-
-#opt2 {
-    
-}
-#opt3 {
-    
-}
-#opt4 {
-    
-}
+ #opt1:hover, #opt2:hover, #opt3:hover, #opt4:hover {
+    cursor: pointer;
+    background: var(--green);
+    color: var(--darkBlue);
+ }
+#scoringForm{    height: 26vh;
+    margin: 3vh 0;
+    display: flex;
+    flex-direction: column;}
+.congrats{    font-size: 2rem;
+    padding: 0 0 4vh;}
+.totals{    padding: 2vh 0px;
+    text-align: justify;}
+    #scoringForm label, #scoringForm input{font-size: 1.5rem;}
+    #scoringForm button{    font-size: 2rem;
+        padding: 6px;
+        border-radius: 10px;
+        margin: 2vh 0;}
 .response{color: var(--lightBlue);}
+#msg {    color: red;
+    font-size: 1rem;
+}
 footer, aside{background-color: var(--darkBlue);position: absolute;}
 .leftSide, .rightSide{bottom: 10vh;
     height: 40vh;

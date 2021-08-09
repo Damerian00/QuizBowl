@@ -12,6 +12,9 @@ let opt3 = document.querySelector('#opt3');
 let opt4 = document.querySelector('#opt4');
 let resp = document.querySelector('.response');
 var container = document.querySelector(".choices");
+let p = document.createElement("p");
+var submitButton = document.querySelector("#submitName");
+var msgDiv = document.querySelector("#msg");
 let timerInterval;
 let questionIndex = 0;
 let random;
@@ -117,10 +120,7 @@ function startTimer() {
         secondsLeft--;
         timeEl.innerHTML = `Time: ${secondsLeft} seconds`;
         if (secondsLeft <= 0) {
-            
-            // Stops execution of action at set interval
-            
-
+            console.log ("Timer Called it");
             gameOver();
         }
 
@@ -140,23 +140,18 @@ function askQuests() {
      assignedValues = Object.values(questions)
     let rando;
     questionIndex++;
-    console.log(assignedValues);
     let newassignedValues = assignedValues.slice(1);
     console.log(newassignedValues);
     rando = Math.floor(Math.random() * (newassignedValues.length));
-    console.log(rando);
     optVar1 = rando;
     rI1 = newassignedValues.splice(rando, 1);
     rando = Math.floor(Math.random() * (rI1.length));
-    console.log(rando);
     optVar2 = rI1[rando];
     rI2 = newassignedValues.splice(rando, 1);
     rando = Math.floor(Math.random() * (rI2.length));
-    console.log(rando);
     optVar3 = rI2[rando];
     rI3 = newassignedValues.splice(rando, 1);
     rando = Math.floor(Math.random() * (rI3.length));
-    console.log(rando);
     optVar4 = rI3[rando];;
     rI4 = newassignedValues.splice(rando, 1);
 
@@ -166,41 +161,24 @@ function askQuests() {
     opt4.innerHTML = `4: ${rI4}`;
     askQuest.innerHTML = questions.question;
 }
-    /*  
-    let index = el.getAttribute("data-number");
-    let state = el.getAttribute("data-state");
-  
-  
-        let index = el.getAttribute("data-number");
-        let state = el.getAttribute("data-state");
-        // el.dataset.state is the same thing
-        console.log (index);
-        console.log(el);
-      // data.state.hidden;
-      //data.state.visible;
-      
-        if (state === "hidden"){
-          el.dataset.state = "visible";
-          el.innerHTML = index;
-        } else {
-          el.dataset.state = "hidden";
-          el.innerHTML = "";
-        }
-        // TODO: Complete function
-        
-      });  */
-
-
 
 }
 
 function gameOver() {
     let gameOver = document.querySelector('.gameOverCard');
+    secondsLeft = 0;
+    timeEl.innerHTML = `Time: ${secondsLeft} seconds`;
     gameOver.style.visibility = "visible";
     document.querySelector('#playCard').style.visibility = "hidden";
     clearInterval(timerInterval);
-    console.log("GameOver");
-
+    let totalQuest = questionsArray.length;
+    let sForm = document.querySelector('.congrats');
+    console.log(sForm);
+    
+    p.textContent = (`You scored: ${score} out of ${totalQuest} `)
+    p.setAttribute("class" , "totals");
+    sForm.appendChild(p);
+    
 }
 
 container.addEventListener("click", function (event){
@@ -208,22 +186,51 @@ container.addEventListener("click", function (event){
     /**When a user makes a guess this wil determine if it wsa correct or not*/
     let el = event.target.innerText.trim();
     let correctAns = questions.cAns;
-    console.log(el);
-    console.log(correctAns);
-    if (questionsArray.length === questionIndex){
+    if (questionsArray.length === questionIndex || secondsLeft <= 0){
+        console.log("array called it")
         gameOver();
     }
     if (el.includes(correctAns)) {
-        console.log("Event:" + el);
         score++;
         resp.innerHTML = "Correct!";
     } else {
         resp.innerHTML = "Wrong!"
         if (secondsLeft -5 <= 0){
-            gameOver();
+            
         } else{
         secondsLeft = secondsLeft - 5;
     }
     }
     askQuests();
 });
+/* recording user info for the score. */
+/* Adding the localStorage */
+function displayMessage(type, message) {
+    msgDiv.textContent = message;
+    msgDiv.setAttribute("class", type);
+  }
+  submitButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    
+    var userName = document.querySelector("#userName").value;
+    
+    if (userName === "") {
+        displayMessage("error", "userName cannot be blank");
+    } else  {
+        displayMessage("success", "Registered successfully");
+        
+        localStorage.setItem("userName", userName);
+        showWinners();
+    }
+});
+
+function showWinners() {
+    window.location.href = "results.html";
+    var userName = localStorage.getItem("userName");
+  
+    if (!userName) {
+      return;
+    }
+  
+    useruserNameSpan.textContent = userName;
+  }
