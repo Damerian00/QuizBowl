@@ -201,13 +201,14 @@ function gameOver() {
 container.addEventListener("click", function (event){
     // resp.innerHTML = "Wrong!";
     /**When a user makes a guess this wil determine if it wsa correct or not*/
-    let el = event.target.id;
+    let el = event.target.innerText.trim();
     let correctAns = questions.cAns;
-    console.log("Event:" + el);
+    console.log(el);
+    console.log(correctAns);
     if (questionsArray.length === questionIndex){
         gameOver();
     }
-    if (el === correctAns) {
+    if (el.includes(correctAns)) {
         console.log("Event:" + el);
         score++;
         resp.innerHTML = "Correct!";
