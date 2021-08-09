@@ -145,6 +145,8 @@ flex: 3;
 .scores{flex-direction: row;
     flex-wrap: wrap;}
 .scores > li{}
+.clrScores{    margin: 0 auto;
+    padding: 10px;cursor: pointer;}
 footer, aside{background-color: var(--darkBlue);position: absolute;}
 .leftSide, .rightSide{bottom: 10vh;
     height: 40vh;

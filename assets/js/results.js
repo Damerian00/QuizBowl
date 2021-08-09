@@ -1,6 +1,6 @@
 var userName = localStorage.getItem("userName");
 var userScore = localStorage.getItem("score");
-
+let clrScores = document.querySelector('.clrScores');
 
 
   // display userName and score
@@ -16,3 +16,9 @@ var userScore = localStorage.getItem("score");
   ul.appendChild(li);
  
  }
+
+clrScores.addEventListener("click" , function (){ 
+    console.log ("clear me");
+    window.location.reload();
+    localStorage.clear();
+});
