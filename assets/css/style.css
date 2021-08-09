@@ -20,7 +20,7 @@ main{
     width: 60%;
     margin: 0 auto}
 
-.nav, #playCard, #playCard section, .choices ul, .hideCard{
+.nav, #playCard, #playCard section, .choices ul, .hideCard, .gameOverCard{
     display: flex;
    }
 .nav{
@@ -49,11 +49,11 @@ color: var(--tan);
     border-radius: 64px;
     
 }
-.questions h2, .hideCard h2{
+.questions h2, .hideCard h2, .gameOverCard h2{
 color: var(--tan);
 font-size: 4rem;
 }
-.hideCard{
+.hideCard, .gameOverCard{
     background-color: var(--lightBlue);
     min-height: 50vh;
     flex-direction: column;
@@ -84,19 +84,22 @@ flex: 3;
     flex-direction: column;
     justify-content: space-evenly;
 }
-.hideCard h2{
+.hideCard h2, .gameOverCard h2{
     color:rgb(255, 255, 255);
 }
-.hideCard p{
+.hideCard p, .gameOverCard p{
     font-size: 2rem;
     text-align: center; 
 }
-.startBtn{
+.startBtn, .endGame{
     font-size: 2rem;
     padding: 6px;
     border-radius: 10px;
     box-shadow: 7px 4px 2px var(--darkBlue);
     cursor: pointer;
+}
+.gameOverCard{
+    visibility: hidden;
 }
 #opt1, #opt2, #opt3, #opt4 {
     cursor: pointer;
