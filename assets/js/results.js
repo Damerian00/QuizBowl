@@ -24,4 +24,3 @@ clrScores.addEventListener("click", function () {
   localStorage.clear();
 });
 
-/
