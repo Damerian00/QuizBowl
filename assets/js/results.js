@@ -11,7 +11,7 @@ let clrScores = document.querySelector('.clrScores');
   let ul = document.querySelector('.scores');
   userName = userName;
   userScore = userScore;
-  let results = (JSON.parse(localStorage.userName) + ": " + JSON.parse(localStorage.score) + " points")
+  let results = (JSON.parse(localStorage.userName) + ": " + JSON.parse(localStorage.score) + " points");
   li.textContent = results;
   ul.appendChild(li);
  

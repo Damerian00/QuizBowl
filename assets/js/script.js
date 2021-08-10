@@ -177,7 +177,7 @@ function gameOver() {
     let sForm = document.querySelector('.congrats');
     console.log(sForm);
     let p = document.createElement("p");
-    p.textContent = (`You scored: ${score} out of ${totalQuest} `)
+    p.textContent = (`You scored: ${score + 1} out of ${totalQuest} `)
     p.setAttribute("class" , "totals");
     sForm.appendChild(p);
     
@@ -221,10 +221,14 @@ submitButton.addEventListener("click", function(event) {
         displayMessage("error", "userName cannot be blank");
     } else  {
         displayMessage("success", "Registered successfully");
+        console.log(storeUser);
+        console.log(storeScore);
        storeUser.push(userName);
        storeScore.push(daScore);
         localStorage.setItem("userName", JSON.stringify(storeUser));
         localStorage.setItem("score", JSON.stringify(storeScore));
+        console.log(storeUser);
+        console.log(storeScore);
         showWinners();
 
     }
