@@ -11,10 +11,9 @@ let opt2 = document.querySelector('#opt2');
 let opt3 = document.querySelector('#opt3');
 let opt4 = document.querySelector('#opt4');
 let resp = document.querySelector('.response');
-var container = document.querySelector(".choices");
-
-var submitButton = document.querySelector("#submitName");
-var msgDiv = document.querySelector("#msg");
+let container = document.querySelector(".choice-options");
+let submitButton = document.querySelector("#submitName");
+let msgDiv = document.querySelector("#msg");
 let timerInterval;
 let questionIndex = 0;
 let random;
@@ -29,13 +28,25 @@ let rI1;
 let rI2;
 let rI3;
 let rI4;
-let storeUser = [];
-let storeScore = [];
+let storeUser;
+let storeScore;
+
+if (
+    localStorage === undefined ||
+    localStorage.length === 0 ) {
+    storeUser = localStorage.setItem("userName", JSON.stringify([]));
+    storeScore = localStorage.setItem("score", JSON.stringify([]));
+    storeUser = JSON.parse(localStorage.getItem("userName"));
+    storeScore = JSON.parse(localStorage.getItem("score"));
+  } else {
+    storeUser = JSON.parse(localStorage.getItem("userName"));
+    storeScore = JSON.parse(localStorage.getItem("score"));
+  }
 
 let questionsArray = [{
     question: "Which X-men has claws?",
     cAns: "Wolverine",
-    iAnsOne: "Porfessor X",
+    iAnsOne: "Professor X",
     iAnsTwo: "Cylcops",
     iAnsThree: "Rogue",
 },
@@ -157,10 +168,10 @@ function askQuests() {
     optVar4 = rI3[rando];;
     rI4 = newassignedValues.splice(rando, 1);
 
-    opt1.innerHTML = `1: ${rI1}`;
-    opt2.innerHTML = `2: ${rI2}`;
-    opt3.innerHTML = `3: ${rI3}`;
-    opt4.innerHTML = `4: ${rI4}`;
+    opt1.innerHTML =  rI1;
+    opt2.innerHTML =  rI2;
+    opt3.innerHTML =  rI3;
+    opt4.innerHTML =  rI4;
     askQuest.innerHTML = questions.question;
 }
 
@@ -177,7 +188,7 @@ function gameOver() {
     let sForm = document.querySelector('.congrats');
     console.log(sForm);
     let p = document.createElement("p");
-    p.textContent = (`You scored: ${score + 1} out of ${totalQuest} `)
+    p.textContent = (`You scored: ${score} out of ${totalQuest} `)
     p.setAttribute("class" , "totals");
     sForm.appendChild(p);
     
@@ -186,12 +197,16 @@ function gameOver() {
 container.addEventListener("click", function (event){
  /**When a user makes a guess this wil determine if it was 
   correct or not*/
+
+
+  /*see if line 194 can go below the other if statement */
     let el = event.target.innerText.trim();
     let correctAns = questions.cAns;
     if (questionsArray.length === questionIndex || secondsLeft <= 0 || askedQuestions.length === questionsArray.length){
         console.log("array called it")
         gameOver();
     }
+// if (el === correctAns)
     if (el.includes(correctAns)) {
         score++;
         resp.innerHTML = "Correct!";
@@ -223,8 +238,9 @@ submitButton.addEventListener("click", function(event) {
         displayMessage("success", "Registered successfully");
         console.log(storeUser);
         console.log(storeScore);
-       storeUser.push(userName);
-       storeScore.push(daScore);
+        storeUser.push(userName);
+        storeScore.push(daScore);
+        //local storage is storing it to index 1 and 2 and not moving from there.
         localStorage.setItem("userName", JSON.stringify(storeUser));
         localStorage.setItem("score", JSON.stringify(storeScore));
         console.log(storeUser);
