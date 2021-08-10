@@ -29,76 +29,78 @@ let rI1;
 let rI2;
 let rI3;
 let rI4;
+let storeUser = [];
+let storeScore = [];
 
 let questionsArray = [{
-    question: "What color is Blue?",
-    cAns: "It's Blue",
-    iAnsOne: "It's Green",
-    iAnsTwo: "It's Yellow",
-    iAnsThree: "It's Orange",
+    question: "Which X-men has claws?",
+    cAns: "Wolverine",
+    iAnsOne: "Porfessor X",
+    iAnsTwo: "Cylcops",
+    iAnsThree: "Rogue",
 },
 {
-    question: "What color is 2Blue?",
-    cAns: "It's Blue",
-    iAnsOne: "It's Green",
-    iAnsTwo: "It's Yellow",
-    iAnsThree: "It's Orange",
+    question: "Which mutant's backstory from the cartoon series was used for rogue in the movie X-men?",
+    cAns: "Jubilee",
+    iAnsOne: "Storm",
+    iAnsTwo: "Gambit",
+    iAnsThree: "It's her story",
 },
 {
-    question: "What color is 3Blue?",
-    cAns: "It's Blue",
-    iAnsOne: "It's Green",
-    iAnsTwo: "It's Yellow",
-    iAnsThree: "It's Orange",
+    question: "Which person does both Wolverine and Cyclops have a thing for?",
+    cAns: "Jean Grey",
+    iAnsOne: "Storm",
+    iAnsTwo: "Mrs. Marvel",
+    iAnsThree: "Rogue",
 },
 {
-    question: "What color is 4Blue?",
-    cAns: "It's Blue",
-    iAnsOne: "It's Green",
-    iAnsTwo: "It's Yellow",
-    iAnsThree: "It's Orange",
+    question: "Which X-men can harm Mr. Sinister with their muant powers?",
+    cAns: "Cyclops",
+    iAnsOne: "Wolverine",
+    iAnsTwo: "Storm",
+    iAnsThree: "Colussus",
 },
 {
-    question: "What color is 5Blue?",
-    cAns: "It's Blue",
-    iAnsOne: "It's Green",
-    iAnsTwo: "It's Yellow",
-    iAnsThree: "It's Orange",
+    question: "Omega Red is which X-men's enemy?",
+    cAns: "Wolverine",
+    iAnsOne: "Nightcrawler",
+    iAnsTwo: "Beast",
+    iAnsThree: "Angel",
 },
 {
-    question: "What color is 6Blue?",
-    cAns: "It's Blue",
-    iAnsOne: "It's Green",
-    iAnsTwo: "It's Yellow",
-    iAnsThree: "It's Orange",
+    question: "Coming in skin to skin contact with which member of the X-men team can become fatal?",
+    cAns: "Rogue",
+    iAnsOne: "Wolverine",
+    iAnsTwo: "Gambit",
+    iAnsThree: "Iceman",
 },
 {
-    question: "What color is 7Blue?",
-    cAns: "It's Blue",
-    iAnsOne: "It's Green",
-    iAnsTwo: "It's Yellow",
-    iAnsThree: "It's Orange",
+    question: "Magneto's bigest rival and friend?",
+    cAns: "Professor X",
+    iAnsOne: "Himself",
+    iAnsTwo: "Scarlet Witch",
+    iAnsThree: "Mystique",
 },
 {
-    question: "What color is 8Blue?",
-    cAns: "It's Blue",
-    iAnsOne: "It's Green",
-    iAnsTwo: "It's Yellow",
-    iAnsThree: "It's Orange",
+    question: "Gambit is most known for throwing what at his enemies?",
+    cAns: "Playng Cards",
+    iAnsOne: "Paper Airplanes",
+    iAnsTwo: "Quarters",
+    iAnsThree: "Jawbreakers",
 },
 {
-    question: "What color is 9Blue?",
-    cAns: "It's Blue",
-    iAnsOne: "It's Green",
-    iAnsTwo: "It's Yellow",
-    iAnsThree: "It's Orange",
+    question: "Which mutant traveled back in time to stop the assasination attempt?",
+    cAns: "Bishop",
+    iAnsOne: "Avalanche",
+    iAnsTwo: "Psylocke",
+    iAnsThree: "Banshee",
 },
 {
-    question: "What color is 10Blue?",
-    cAns: "It's Blue",
-    iAnsOne: "It's Green",
-    iAnsTwo: "It's Yellow",
-    iAnsThree: "It's Orange",
+    question: "Which mutant from the X-men team was first to use the Phoenix Force?",
+    cAns: "Jean Grey",
+    iAnsOne: "Sunfire",
+    iAnsTwo: "Cyclops",
+    iAnsThree: "Emma Frost",
 },
 ]
 
@@ -213,15 +215,16 @@ function displayMessage(type, message) {
 submitButton.addEventListener("click", function(event) {
     event.preventDefault();
     
-    var userName = document.querySelector("#userName").value;
-    
+    let userName = document.querySelector("#userName").value;
+    let daScore = score;
     if (userName === "") {
         displayMessage("error", "userName cannot be blank");
     } else  {
         displayMessage("success", "Registered successfully");
-       
-        localStorage.setItem("userName", JSON.stringify(userName));
-        localStorage.setItem("score", JSON.stringify(score));
+       storeUser.push(userName);
+       storeScore.push(daScore);
+        localStorage.setItem("userName", JSON.stringify(storeUser));
+        localStorage.setItem("score", JSON.stringify(storeScore));
         showWinners();
 
     }
@@ -229,8 +232,7 @@ submitButton.addEventListener("click", function(event) {
 
 function showWinners() {
     window.location.href = "results.html";
-    
-  
+   
 
   }
   
