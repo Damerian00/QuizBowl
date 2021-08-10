@@ -79,6 +79,8 @@ font-size: 4rem;
     flex: .75;
     margin-top: 2vh;
 }
+.questions h2 {
+    text-align: center; padding:3px;}
 #playCard #daScores{display:block;}
 #daScores{background: white;
     display:block; width:90%;margin:0 auto;border-radius: 30px;display:block;}
@@ -144,7 +146,14 @@ flex: 3;
 }
 .scores{flex-direction: row;
     flex-wrap: wrap;}
-.scores > li{}
+.scores > li{ 
+    width: 100%;
+    margin: 2vh 10%;
+    font-size: 1.3rem;
+    color: var(--tan);
+    text-align: center;
+    background-color: var(--darkBlue);
+}
 .clrScores{    margin: 0 auto;
     padding: 10px;cursor: pointer;}
 footer, aside{background-color: var(--darkBlue);position: absolute;}
@@ -158,3 +167,24 @@ footer{height: 10vh;
     bottom: 0;
     left: 0;
     width: 100%;}
+
+   
+
+    @media screen and (min-width:1025px) and (max-width:1200px){
+        main{height: 20vh;}
+        .questions h2 { font-size: 3rem;
+            text-align: center; padding:3px;}
+    }
+
+    @media screen and (min-width:500px) and (max-width:1024px) {
+        main{height:25vh;width:75%;}
+        .hideCard p{font-size:1.5rem}
+        .questions h2 {    font-size: 2.5rem;
+            text-align: center;}
+            .nav a, #cdTimer {
+                font-size: 25px;
+                font-weight: bolder;}
+                #scoringForm button {
+                    font-size: 1.5rem;}
+                   
+    }

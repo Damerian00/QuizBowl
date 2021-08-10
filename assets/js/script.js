@@ -3,7 +3,7 @@ let askedQuestions = [];
 let hide = document.querySelector('.hideCard');
 let visState = hide.getAttribute("data-visibility");
 let timeEl = document.querySelector("#cdTimer");
-let secondsLeft = 60;
+let secondsLeft = 30;
 startBtn.addEventListener("click", startGame);
 let askQuest = document.querySelector('#daQuestion');
 let opt1 = document.querySelector('#opt1');
@@ -133,7 +133,6 @@ function startTimer() {
         secondsLeft--;
         timeEl.innerHTML = `Time: ${secondsLeft} seconds`;
         if (secondsLeft <= 0) {
-            console.log ("Timer Called it");
             gameOver();
         }
 
@@ -154,7 +153,6 @@ function askQuests() {
     let rando;
     questionIndex++;
     let newassignedValues = assignedValues.slice(1);
-    console.log(newassignedValues);
     rando = Math.floor(Math.random() * (newassignedValues.length));
     optVar1 = rando;
     rI1 = newassignedValues.splice(rando, 1);
@@ -186,9 +184,8 @@ function gameOver() {
     clearInterval(timerInterval);
     let totalQuest = questionsArray.length;
     let sForm = document.querySelector('.congrats');
-    console.log(sForm);
     let p = document.createElement("p");
-    p.textContent = (`You scored: ${score} out of ${totalQuest} `)
+    p.textContent = (`You scored: ${score + 1} out of ${totalQuest} `)
     p.setAttribute("class" , "totals");
     sForm.appendChild(p);
     
@@ -203,7 +200,6 @@ container.addEventListener("click", function (event){
     let el = event.target.innerText.trim();
     let correctAns = questions.cAns;
     if (questionsArray.length === questionIndex || secondsLeft <= 0 || askedQuestions.length === questionsArray.length){
-        console.log("array called it")
         gameOver();
     }
 // if (el === correctAns)
@@ -236,15 +232,11 @@ submitButton.addEventListener("click", function(event) {
         displayMessage("error", "userName cannot be blank");
     } else  {
         displayMessage("success", "Registered successfully");
-        console.log(storeUser);
-        console.log(storeScore);
         storeUser.push(userName);
         storeScore.push(daScore);
         //local storage is storing it to index 1 and 2 and not moving from there.
         localStorage.setItem("userName", JSON.stringify(storeUser));
         localStorage.setItem("score", JSON.stringify(storeScore));
-        console.log(storeUser);
-        console.log(storeScore);
         showWinners();
 
     }
